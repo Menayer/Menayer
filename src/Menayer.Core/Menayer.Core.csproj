@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="Menayer.Core.Tests" />
+  </ItemGroup>
+  
 </Project>
