@@ -1,6 +1,6 @@
 ## Hi there 👋
 
-# Menayer
+# Welcome to Menayer Project
 
 **Modular .NET Libraries by Menayer — Lightweight, extensible, and production-ready utilities for modern C# applications.**
 
