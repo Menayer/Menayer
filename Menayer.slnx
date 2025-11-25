@@ -1,1 +1,11 @@
-<Solution />
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="Menayer.Extensions/Menayer.Extensions.csproj" Id="c2bf0e8e-deca-4e0d-8f8e-eca73c1536ff" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="Menayer.Extensions.Tests/Menayer.Extensions.Tests.csproj" Id="fa6c43e1-8825-4583-9259-6f8d130275a5" />
+  </Folder>
+</Solution>
