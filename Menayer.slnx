@@ -3,6 +3,7 @@
     <File Path="README.md" />
   </Folder>
   <Folder Name="/src/">
+    <Project Path="Menayer.ConsoleApp/Menayer.ConsoleApp.csproj" Id="339c82d3-43df-4cf3-a4d7-4f30399f9425" />
     <Project Path="Menayer.Extensions/Menayer.Extensions.csproj" Id="c2bf0e8e-deca-4e0d-8f8e-eca73c1536ff" />
   </Folder>
   <Folder Name="/tests/">
