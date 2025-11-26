@@ -41,14 +41,20 @@ namespace Menayer.Extensions.Core.Helpers
             // Saturday only
             { "NP", new [] { DayOfWeek.Saturday } }
         };
-        public static DayOfWeek[] GetWeekendDays(CultureInfo? currentCulture)
+        public static DayOfWeek[] GetWeekendDays(CultureInfo currentCulture)
         {
-            if (string.IsNullOrWhiteSpace(currentCulture?.ToString()))
-                return new[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
+            var cultureCode = currentCulture.Name.Split('-').Last();
 
-            return CountryWeekends.TryGetValue(currentCulture.ToString().Substring(currentCulture.ToString().IndexOf("-")+1), out var days)
+            return CountryWeekends.TryGetValue(cultureCode, out var days)
                 ? days
                 : new[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
+        }
+
+        public static DayOfWeek[] GetWeekendDays(DayOfWeek startWeekendDay, int numberOfDays)
+        {
+            return Enumerable.Range(0, numberOfDays)
+                .Select(i => (DayOfWeek)(((int)startWeekendDay + i) % 7))
+                .ToArray();
         }
     }
 }

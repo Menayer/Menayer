@@ -12,7 +12,51 @@ namespace Menayer.Extensions.Core
         public static bool IsWeekEnd(this DateTime value, CultureInfo? currentCulture = null)
         {
             var weekendDays = WeekendHelper.GetWeekendDays(currentCulture ?? CultureInfo.CurrentCulture);
-            return Array.Exists(weekendDays, d => d == value.DayOfWeek);
+            return weekendDays.Contains(value.DayOfWeek);
+        }
+
+        public static bool IsWeekEnd(this DateTime value, DayOfWeek startWeekendDay, int numberOfDays = 2)
+        {
+            var weekendDays = WeekendHelper.GetWeekendDays(startWeekendDay, numberOfDays);
+            return weekendDays.Contains(value.DayOfWeek);
+        }
+
+        public static bool IsWeekEnd(this string value, CultureInfo? currentCulture = null)
+        {
+            if (!Enum.TryParse(value, true, out DayOfWeek day)) return false;
+            var weekendDays = WeekendHelper.GetWeekendDays(currentCulture ?? CultureInfo.CurrentCulture);
+            return weekendDays.Contains(day);
+        }
+
+        public static bool IsWeekEnd(this string value, DayOfWeek startWeekendDay, int numberOfDays = 2)
+        {
+            if (!Enum.TryParse(value, true, out DayOfWeek day)) return false;
+            var weekendDays = WeekendHelper.GetWeekendDays(startWeekendDay, numberOfDays);
+            return weekendDays.Contains(day);
+        }
+
+        public static bool IsWeekEnd(this DayOfWeek value, CultureInfo? currentCulture = null)
+        {
+            var weekendDays = WeekendHelper.GetWeekendDays(currentCulture ?? CultureInfo.CurrentCulture);
+            return weekendDays.Contains(value);
+        }
+
+        public static bool IsWeekEnd(this DayOfWeek value, DayOfWeek startWeekendDay, int numberOfDays = 2)
+        {
+            var weekendDays = WeekendHelper.GetWeekendDays(startWeekendDay, numberOfDays);
+            return weekendDays.Contains(value);
+        }
+
+        public static bool IsWeekEnd(this DateOnly value, CultureInfo? currentCulture = null)
+        {
+            var weekendDays = WeekendHelper.GetWeekendDays(currentCulture ?? CultureInfo.CurrentCulture);
+            return weekendDays.Contains(value.DayOfWeek);
+        }
+
+        public static bool IsWeekEnd(this DateOnly value, DayOfWeek startWeekendDay, int numberOfDays = 2)
+        {
+            var weekendDays = WeekendHelper.GetWeekendDays(startWeekendDay, numberOfDays);
+            return weekendDays.Contains(value.DayOfWeek);
         }
 
         #endregion
